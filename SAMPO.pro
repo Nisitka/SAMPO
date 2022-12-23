@@ -14,12 +14,21 @@ CONFIG += c++11
 
 SOURCES += \
     coreapplication.cpp \
+    graphicsview.cpp \
+    gui.cpp \
     main.cpp \
+    player.cpp \
+    window.cpp
 
 HEADERS += \
-    coreapplication.h
+    coreapplication.h \
+    graphicsview.h \
+    gui.h \
+    player.h \
+    window.h
 
 FORMS += \
+    window.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
