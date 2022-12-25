@@ -100,7 +100,22 @@ void Player::move(int x, int y)
         newAngle = -atan((double)dX/dY) * 57.3;
     }
 
+    if (angle < -180) angle += 360;
+    if (angle >  180) angle -= 360;
+
     qDebug() << angle << " " << newAngle;
+
+    if (abs(newAngle - angle) > 180)
+    {
+        newAngle = (360 - newAngle) * (-1);
+    }
+
+    if (newAngle < -360) newAngle += 360;
+    if (newAngle >  360) newAngle -= 360;
+
+    qDebug() << angle << " " << newAngle;
+    qDebug() << "__________________";
+
 
     //
     spin(angle, newAngle);

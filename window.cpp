@@ -18,7 +18,7 @@ window::window(QWidget *parent) :
     ui->playerWindowLayout->addWidget(graphicsArea);
 
     scene->addItem(player1);   /// Добавляем на сцену игрока
-    player1->setPos(0, 0);      /// Устанавливаем игрока в центр сцены
+    player1->setPos(-30, -50);      /// Устанавливаем игрока в центр сцены
 
     connect(
             graphicsArea, SIGNAL(movePlayer(int, int)),
