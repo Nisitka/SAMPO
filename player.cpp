@@ -4,6 +4,8 @@
 
 #include <cmath>
 
+#include <QApplication>
+
 Player::Player(QObject *parent) : QObject(parent)
 {
     angle = -45;
@@ -26,16 +28,28 @@ Player::Player(QObject *parent) : QObject(parent)
 
 QRectF Player::boundingRect() const
 {
-    return QRectF(-25,-40,50,80);   /// Ограничиваем область, в которой лежит треугольник
+    return QRectF(-20, -13, 40, 26);   /// Ограничиваем область, в которой лежит треугольник
 }
 
 void Player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
         QPolygon polygon;   /// Используем класс полигона, чтобы отрисовать треугольник
         /// Помещаем координаты точек в полигональную модель
-        polygon << QPoint(0,-40) << QPoint(25,40) << QPoint(-25,40);
-        painter->setBrush(Qt::red);     /// Устанавливаем кисть, которой будем отрисовывать объект
-        painter->drawPolygon(polygon);  /// Рисуем треугольник по полигональной модели
+        //polygon << QPoint(-25,-40) << QPoint(25,-40)  << QPoint(25,40) << QPoint(-25,40);
+        //QPixmap pix = QPixmap(QApplication::applicationDirPath() + "/image.jpg");
+        //painter->setBrush(QBrush(pix));     /// Устанавливаем кисть, которой будем отрисовывать объект
+
+        painter->setBrush(QBrush(Qt::blue));
+        painter->drawEllipse(-20, -13, 40, 26);
+
+        painter->setBrush(QBrush(Qt::black));
+        painter->drawRect(-13, -13, 26, 26);
+
+        painter->setBrush(QBrush(Qt::blue));
+        painter->drawEllipse(-5, -13, 10, 7);
+
+        //painter->drawPolygon(polygon);  /// Рисуем треугольник по полигональной модели
+
         Q_UNUSED(option);
         Q_UNUSED(widget);
 }
