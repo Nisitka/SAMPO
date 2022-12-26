@@ -10,6 +10,7 @@
 
 #include <QTimer>
 
+// класс игроков
 class Player : public QObject, public QGraphicsItem
 {
     Q_OBJECT
