@@ -5,12 +5,15 @@
 
 #include "window.h"
 
-class GUI
+class GUI : public QObject
 {
+
 public:
     GUI();
 
     void showGamingWindow();
+
+    void setPlayer(Player* player);
 
 private:
     window* mainWindow;

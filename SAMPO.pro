@@ -18,14 +18,20 @@ SOURCES += \
     gui.cpp \
     main.cpp \
     player.cpp \
-    window.cpp
+    window.cpp \
+    map.cpp \
+    mapobject.cpp \
+    belic.cpp
 
 HEADERS += \
     coreapplication.h \
     graphicsview.h \
     gui.h \
     player.h \
-    window.h
+    window.h \
+    map.h \
+    mapobject.h \
+    belic.h
 
 FORMS += \
     window.ui

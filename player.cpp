@@ -8,6 +8,8 @@
 
 Player::Player(QObject *parent) : QObject(parent)
 {
+    condition = moving;
+
     angle = -45;
     speedRun = 3;
     speedSpin = 1.4;
@@ -24,34 +26,13 @@ Player::Player(QObject *parent) : QObject(parent)
             timerRun, SIGNAL(timeout()),
             this,     SLOT(tactRun())
             );
-}
 
-QRectF Player::boundingRect() const
-{
-    return QRectF(-20, -13, 40, 26);   /// Ограничиваем область, в которой лежит треугольник
-}
-
-void Player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-        QPolygon polygon;   /// Используем класс полигона, чтобы отрисовать треугольник
-        /// Помещаем координаты точек в полигональную модель
-        //polygon << QPoint(-25,-40) << QPoint(25,-40)  << QPoint(25,40) << QPoint(-25,40);
-        //QPixmap pix = QPixmap(QApplication::applicationDirPath() + "/image.jpg");
-        //painter->setBrush(QBrush(pix));     /// Устанавливаем кисть, которой будем отрисовывать объект
-
-        painter->setBrush(QBrush(Qt::blue));
-        painter->drawEllipse(-20, -13, 40, 26);
-
-        painter->setBrush(QBrush(Qt::black));
-        painter->drawRect(-13, -13, 26, 26);
-
-        painter->setBrush(QBrush(Qt::blue));
-        painter->drawEllipse(-5, -13, 10, 7);
-
-        //painter->drawPolygon(polygon);  /// Рисуем треугольник по полигональной модели
-
-        Q_UNUSED(option);
-        Q_UNUSED(widget);
+    regainTimer = new QTimer;
+    connect(
+            regainTimer, SIGNAL(timeout()),
+            this,        SLOT(regain())
+            );
+    regainTimer->start(100);
 }
 
 void Player::spin(double a, double b)
@@ -77,6 +58,7 @@ void Player::tactSpin()
     if (abs(angle - newAngle) < speedSpin)
     {
         timerSpin->stop();
+        angle = newAngle;
 
         timerRun->start(20);
     }
@@ -92,8 +74,21 @@ void Player::tactRun()
     }
 }
 
+void Player::getMana(int &value, int &max)
+{
+    value = mana;
+    max = maxMana;
+}
+void Player::getHP(int &value, int &max)
+{
+    value = HP;
+    max = maxHP;
+}
+
 void Player::move(int x, int y)
 {
+    condition = moving;
+
     timerRun->stop();
     timerSpin->stop();
 
@@ -127,10 +122,6 @@ void Player::move(int x, int y)
     if (newAngle < -360) newAngle += 360;
     if (newAngle >  360) newAngle -= 360;
 
-    qDebug() << angle << " " << newAngle;
-    qDebug() << "__________________";
-
-
     //
     spin(angle, newAngle);
 
@@ -139,5 +130,14 @@ void Player::move(int x, int y)
     //setPos(x, y);
 
     //setPos(mapToParent(0, speed));
+}
+
+void Player::regain()
+{
+    if (HP < maxHP) HP += regainHP;
+    else HP = maxHP;
+
+    if (mana < maxMana) mana += regainMana;
+    else mana = maxMana;
 }
 
