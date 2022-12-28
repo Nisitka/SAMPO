@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>517</height>
+    <width>760</width>
+    <height>472</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>35</width>
+       <width>13</width>
        <height>20</height>
       </size>
      </property>
@@ -63,19 +63,58 @@
           </spacer>
          </item>
          <item>
+          <spacer name="horizontalSpacer_7">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="faceLabel">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>140</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
             <widget class="QPushButton" name="qButton">
              <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="text">
@@ -87,14 +126,14 @@
             <widget class="QLabel" name="qLabel">
              <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="text">
@@ -123,14 +162,14 @@
             <widget class="QPushButton" name="wButton">
              <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="text">
@@ -142,14 +181,14 @@
             <widget class="QLabel" name="wLabel">
              <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="text">
@@ -178,14 +217,14 @@
             <widget class="QPushButton" name="eButton">
              <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="text">
@@ -197,14 +236,14 @@
             <widget class="QLabel" name="eLabel">
              <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="text">
@@ -233,14 +272,14 @@
             <widget class="QPushButton" name="rButton">
              <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="text">
@@ -252,14 +291,14 @@
             <widget class="QLabel" name="rLabel">
              <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>40</width>
-               <height>30</height>
+               <width>80</width>
+               <height>60</height>
               </size>
              </property>
              <property name="text">
@@ -269,6 +308,18 @@
            </item>
            <item>
             <spacer name="verticalSpacer_7">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>80</width>
+               <height>60</height>
+              </size>
+             </property>
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
@@ -424,7 +475,7 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>50</width>
+       <width>21</width>
        <height>20</height>
       </size>
      </property>

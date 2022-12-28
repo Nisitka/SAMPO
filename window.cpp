@@ -34,6 +34,24 @@ void window::setPlayer(Player* player_)
     scene->addItem(player);        /// Добавляем на сцену игрока
     player->setPos(-30, -50);      /// Устанавливаем игрока в центр сцены
 
+    // установка изображений способностей
+    QVector <QPixmap*>* pixMaps = player->getPixAbilites();
+    QSize sizeLabels = ui->eLabel->size();
+
+    QPixmap pix;
+
+    pix = *pixMaps->at(0);
+    ui->qLabel->setPixmap(pix.scaled(sizeLabels));
+    pix = *pixMaps->at(1);
+    ui->wLabel->setPixmap(pix.scaled(sizeLabels));
+    pix = *pixMaps->at(2);
+    ui->eLabel->setPixmap(pix.scaled(sizeLabels));
+    pix = *pixMaps->at(3);
+    ui->rLabel->setPixmap(pix.scaled(sizeLabels));
+
+
+    ui->faceLabel->setPixmap(*player->getPixFace());
+
     // передается новые координаты относительно графической сцены
     connect(
             graphicsArea, SIGNAL(movePlayer(int, int)),

@@ -31,13 +31,18 @@ public:
     void getHP(int& value, int& max);
     void getMana(int& value, int& max);
 
-protected:
-    //virtual QRectF boundingRect() const;
-    //virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    QVector <QPixmap*>* getPixAbilites();
+    QPixmap* getPixFace();
 
+    static QPixmap* getPixMap(const QString& nameImageJPG);
+
+protected:
     // состояния игрока
     enum conditions{moving, attacking};
     int condition;
+
+    void setPixAbilites(const QStringList& nameFiles);
+    void setPixFace(const QString& nameFile);
 
 private slots:
     void tactSpin(); // повернуть на один тик
@@ -72,6 +77,13 @@ private:
     // координаты, в которые идет игрок
     int newX;
     int newY;
+
+    // картинки способностей
+    QVector <QPixmap*>* pixAbilites;
+
+    // картинка аватара
+    QPixmap* pixFace;
+
 };
 
 #endif // PLAYER_H

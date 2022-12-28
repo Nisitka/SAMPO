@@ -2,7 +2,10 @@
 
 Belic::Belic(QObject *parent) : Player(parent)
 {
+    QStringList list = {"qBelic", "wBelic", "eBelic", "rBelic"};
+    setPixAbilites(list);
 
+    setPixFace("Belic");
 }
 
 QRectF Belic::boundingRect() const
@@ -21,7 +24,8 @@ void Belic::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
     painter->setBrush(QBrush(Qt::blue));
     painter->drawEllipse(-5, -13, 10, 7);
 
-    switch (condition) {
+    switch (condition)
+    {
     case moving:
 
         break;

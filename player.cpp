@@ -10,6 +10,8 @@ Player::Player(QObject *parent) : QObject(parent)
 {
     condition = moving;
 
+    pixAbilites = new QVector <QPixmap*>;
+
     angle = -45;
     speedRun = 3;
     speedSpin = 1.4;
@@ -141,3 +143,33 @@ void Player::regain()
     else mana = maxMana;
 }
 
+void Player::setPixFace(const QString &nameFile)
+{
+    pixFace = getPixMap(nameFile);
+}
+
+QPixmap* Player::getPixFace()
+{
+    return pixFace;
+}
+
+QVector <QPixmap*>* Player::getPixAbilites()
+{
+    return pixAbilites;
+}
+
+void Player::setPixAbilites(const QStringList& nameFiles)
+{
+    for (int i=0; i<4; i++)
+    {
+        pixAbilites->append(getPixMap(nameFiles[i]));
+    }
+}
+
+QPixmap* Player::getPixMap(const QString& nameImageJPG)
+{
+    return new QPixmap(
+                   QApplication::applicationDirPath() + "/" +
+                   nameImageJPG + ".jpg"
+                   );
+}
